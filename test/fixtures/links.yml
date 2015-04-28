@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shortlink: MyString
+  visits: 1
+  last_visit: 2015-04-28
+
+two:
+  shortlink: MyString
+  visits: 1
+  last_visit: 2015-04-28

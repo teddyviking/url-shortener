@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: url_shortener_production
-  username: url_shortener
+  username: rafa1
   password: <%= ENV['URL_SHORTENER_DATABASE_PASSWORD'] %>

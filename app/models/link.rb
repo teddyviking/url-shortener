@@ -3,8 +3,10 @@ class Link < ActiveRecord::Base
 	validates :shortlink, uniqueness: true, presence: true
 
 	def generate_short_link(characters)
-		chain = false
-		while Link.find_by shortlink: chain
+		chain = gen_random_chain(characters)
+		
+		while (Link.find_by shortlink: chain) do
+			binding.pry
 			chain = gen_random_chain(characters)
 		end
 

@@ -29,5 +29,12 @@ class Link < ActiveRecord::Base
     	self.save
 	end
 
+	def add_http
+		if !self.link.start_with?("http://")
+			self.link.prepend("http://") 
+			self.save 
+		end
+	end
+
 
 end

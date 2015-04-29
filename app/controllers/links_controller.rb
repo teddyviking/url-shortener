@@ -16,6 +16,7 @@ class LinksController < ApplicationController
 
   def create
   	@link = Link.new permited_params
+    @link.add_http
     @link.generate_short_link(3)
   	if @link.save
       redirect_to link_path(@link)

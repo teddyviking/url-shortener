@@ -1,12 +1,7 @@
-<%= form_for(@product) do |f| %>
+<%= form_for @link do |f| %>
   
-
-  <div class="field">
     <%= f.label :link %><br>
     <%= f.text_field :link %>
-  </div>
 
-  <div class="actions">
     <%= f.submit %>
-  </div>
 <% end %>

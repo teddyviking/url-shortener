@@ -26,6 +26,7 @@ class LinksController < ApplicationController
 
   def render_original_url
     @link = Link.find_by shortlink: params[:shortlink]
+    @link.update_visits
     redirect_to @link.link
   end
 

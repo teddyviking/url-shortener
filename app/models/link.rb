@@ -23,5 +23,11 @@ class Link < ActiveRecord::Base
 		chain
 	end
 
+	def update_visits
+		self.visits += 1
+    	self.last_visit = Date.today
+    	self.save
+	end
+
 
 end

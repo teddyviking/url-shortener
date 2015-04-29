@@ -24,6 +24,11 @@ class LinksController < ApplicationController
     end
   end
 
+  def render_original_url
+    @link = Link.find_by shortlink: params[:shortlink]
+    redirect_to @link.link
+  end
+
   private
 
   def permited_params

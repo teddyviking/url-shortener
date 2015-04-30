@@ -36,5 +36,23 @@ class Link < ActiveRecord::Base
 		end
 	end
 
+	def self.find_or_create_link(permited_params)
+		future_link = Link.find_with_http(permited_params)
+		if !future_link
+			new_link = Link.new(permited_params)
+			new_link.generate_short_link(3)
+			new_link.save
+			new_link
+		else
+			future_link
+		end
+	end
 
+	def self.find_with_http(params)
+		original_link = params[:link]
+   		original_link.prepend("http://") if !original_link.start_with?("http://") && !original_link.empty?
+
+   		link = Link.find_by link: original_link
+
+	end
 end

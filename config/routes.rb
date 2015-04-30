@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get '/' => 'site#home'
 
   resources :links
-
+  get '/most_visited_pages' => 'links#most_visited_pages', as: :most_visited_pages
   get '/:shortlink' => 'links#render_original_url'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

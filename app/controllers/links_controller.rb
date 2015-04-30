@@ -29,6 +29,10 @@ class LinksController < ApplicationController
     redirect_to @link.link
   end
 
+  def most_visited_pages
+    @most_visited_pages = Link.order(visits: :desc).limit(10) 
+  end
+
   private
 
   def permited_params

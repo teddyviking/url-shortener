@@ -15,13 +15,18 @@ class LinksController < ApplicationController
   end
 
   def create
-  	@link = Link.new permited_params
-    @link.add_http
-    @link.generate_short_link(3)
-  	if @link.save
-      redirect_to link_path(@link)
+  	params[:link][:link].prepend("http://") if !params[:link][:link].start_with?("http://")
+    @link = Link.find_by link: params[:link][:link]
+    if !@link
+      @link = Link.new permited_params
+      @link.generate_short_link(3)
+      if @link.save
+        redirect_to link_path(@link)
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to link_path(@link)
     end
   end
 

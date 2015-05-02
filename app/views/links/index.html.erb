@@ -1,2 +1,11 @@
-<h1>Links#index</h1>
-<p>Find me in app/views/links/index.html.erb</p>
+<h1>All the links</h1>
+
+<ul>
+	<% @links.each do |link| %>
+		<li>
+			<%= link_to(link.link, link_path(link)) + " / created on " + link.created_at.to_date.to_s + " / visited " + link.visits.to_s + " times" %>
+		</li>
+
+	<% end %>
+
+</ul>
